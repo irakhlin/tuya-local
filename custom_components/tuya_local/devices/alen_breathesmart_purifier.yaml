@@ -1,0 +1,93 @@
+name: Alen BreatheSmart
+products:
+  - id: eb399c8c9893d8652bhhah
+primary_entity:
+  entity: fan
+  icon: "mdi:air-purifier"
+  dps:
+    - id: 1
+      name: switch
+      type: boolean
+    - id: 3
+      type: string
+      name: preset_mode
+      mapping:
+        - dps_val: auto
+          value: auto
+        - dps_val: sleep
+          value: sleep
+        - dps_val: manual
+          value: manual
+        - dps_val: pollen
+          value: pollen
+        - dps_val: comfortable
+          value: comfortable
+        - dps_val: strong
+          value: strong
+    - id: 4
+      type: integer
+      name: speed
+      range:
+        min: 1
+        max: 4
+    - id: 19
+      type: integer
+      name: timer
+secondary_entities:
+  - entity: switch
+    name: Child Lock
+    category: config
+    icon: "mdi:lock"
+    dps:
+      - id: 7
+        name: switch
+        type: boolean
+  - entity: switch
+    name: Ionizer
+    category: config
+    icon: "mdi:shield-bug"
+    dps:
+      - id: 6
+        name: switch
+        type: boolean
+  - entity: sensor
+    name: Filter percent left
+    category: diagnostic
+    icon: "mdi:air-filter"
+    dps:
+      - id: 5
+        name: sensor
+        type: integer
+        unit: "%"
+  - entity: number
+    name: Timer
+    icon: "mdi:fan-clock"
+    category: config
+    dps:
+      - id: 19
+        type: integer
+        name: value
+        unit: min
+        range:
+          min: 0
+          max: 360
+  - entity: sensor
+    name: Time left
+    category: diagnostic
+    class: duration
+    icon: "mdi:timer"
+    dps:
+      - id: 20
+        name: sensor
+        type: integer
+        unit: min
+  - entity: sensor
+    name: PM2.5
+    class: pm25
+    category: diagnostic
+    dps:
+      - id: 2
+        type: integer
+        name: sensor
+        unit: µg/m³
+        class: measurement
